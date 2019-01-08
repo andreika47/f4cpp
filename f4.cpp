@@ -3,6 +3,9 @@
 namespace f4
 {
 
+using spair  = std::pair< polynomial, polynomial >;
+using spairs = std::vector< spair >;
+
 void
 update(polynomials &G, spairs &P, const polynomial &f)
 {
@@ -24,7 +27,7 @@ update(polynomials &G, spairs &P, const polynomial &f)
 
     P.erase(std::remove_if(P.begin(), P.end(), [&fLM](auto &p) {
         const auto &l = p.first.LM();
-        const auto &r = p.first.LM();
+        const auto &r = p.second.LM();
         const auto &m = lcm(l, r);
 
         return fLM | m && lcm(fLM, l) != m && lcm(fLM, r) != m;
@@ -75,8 +78,11 @@ select(spairs &P, polynomials &Ld)
 }
 
 void
-reduction()
+reduction(polynomials &Ld, polynomials &G, polynomials &Fd)
 {
+    (void) Ld;
+    (void) G;
+    (void) Fd;
 }
 
 polynomials
@@ -95,13 +101,20 @@ GB(polynomials &F)
         Ld.clear();
         select(P, Ld);
 
-        //reduction(Ld, G, )
+        Fd.clear();
+        reduction(Ld, G, Fd);
+
+        //TODO: sort Fd
 
         for (const auto &h : Fd)
         {
             update(G, P, h);
         }
     }
+
+    //TODO: autoreduce
+
+    //TODO: normalize
 
     return G;
 }

@@ -18,7 +18,11 @@ struct polynomial
   private:
     modulars  coeffs;
     monomials monoms;
+
+    friend std::ostream &operator<<(std::ostream &os, const polynomial &p);
 };
+
+std::ostream &operator<<(std::ostream &os, const polynomial &p);
 
 using polynomials = std::vector< polynomial >;
 

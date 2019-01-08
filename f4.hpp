@@ -6,9 +6,6 @@
 namespace f4
 {
 
-using spair  = std::pair< polynomial, polynomial >;
-using spairs = std::vector< spair >;
-
 polynomials GB(polynomials &F);
 
 } /* namespace f4 */

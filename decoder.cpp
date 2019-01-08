@@ -1,18 +1,36 @@
 #include "decoder.hpp"
 
-#include <iostream>
-
 namespace f4
 {
 
-decoder::decoder(std::istream *stream)
+decoder::decoder(std::istream *stream) : stream(stream)
 {
-    if (stream == nullptr)
-    {
-        stream = &std::cin;
-    }
+}
 
-    this->stream = stream;
+size_t
+decoder::vars()
+{
+    std::string line;
+
+    std::getline(*stream, line);
+
+    return std::strtoull(line.c_str(), NULL, 10);
+}
+
+size_t
+decoder::modn()
+{
+    std::string line;
+
+    std::getline(*stream, line);
+
+    return std::strtoull(line.c_str(), NULL, 10);
+}
+
+polynomials
+decoder::F()
+{
+    return {};
 }
 
 } /* namespace f4 */
