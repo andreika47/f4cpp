@@ -1,0 +1,26 @@
+---
+Language: Cpp
+Standard: Cpp11
+
+ColumnLimit: 0
+IndentWidth: 4
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterControlStatement: true
+  AfterEnum:             true
+  AfterFunction:         true
+  AfterNamespace:        true
+  AfterStruct:           true
+  AfterUnion:            true
+  BeforeElse:            true
+
+SpaceAfterCStyleCast: true
+SpacesInAngles:       true
+
+AlwaysBreakAfterReturnType: TopLevelDefinitions
+
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+...
+
