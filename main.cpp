@@ -1,5 +1,6 @@
 #include "decoder.hpp"
 #include "encoder.hpp"
+#include "f4.hpp"
 
 #include <fstream>
 #include <iostream>
@@ -43,4 +44,7 @@ main(int argc, char *argv[])
 
     f4::decoder reader(input.get());
     f4::encoder writer(output.get());
+
+    f4::polynomials F;
+    f4::GB(F);
 }
